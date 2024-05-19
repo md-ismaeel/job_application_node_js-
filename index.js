@@ -1,16 +1,19 @@
 const express = require('express');
 const mongoose = require('mongoose')
-const router = require('./Routes/jobRoutes')
-// console.log("x",router);
+const jobRoutes = require('./Routes/jobRoutes')
 
 const app = express()
 const port = 8000;
 
 app.use(express.json())
 
+
+// Db Connecting
 mongoose.connect('mongodb://localhost:27017/jobApp')
-    .then(() => console.log('this is the promise it will take to resolve the data form module'))
-    .catch((err) => console.log(`Error fetching data ${err}`))
+    .then(() => console.log('Connection with Database established successfully'))
+    .catch((err) => console.log(`ERROR CONNECTING WITH DATABASE ${err}`))
+
+app.use(jobRoutes)
 
 
 app.listen(port, () => console.log(`Server is running on port ${port}`))
