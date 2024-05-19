@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const jobRoutes = require('./Routes/jobRoutes')
 
 const app = express()
-const port = 8000;
+const port = 10000;
 
 app.use(express.json())
 
